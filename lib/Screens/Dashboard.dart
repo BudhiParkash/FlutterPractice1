@@ -3,19 +3,136 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class DashBoard extends StatelessWidget {
-  const DashBoard({super.key});
+   DashBoard({super.key});
+
+  List<String> products = ["Bed" , "Sofa" , "Mirror"];
+  List<String> productDetails = ["Bed is good things" , "Sofa is very comfort to sit" , "Mirror is used to see face"];
+  List<String> price = ["200" , "232" , "999"];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(title: Text("Home"),),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text("Shivam Sharma"),
+                accountEmail: Text("shivam.dev@gmail.com"),
+            currentAccountPicture: CircleAvatar(foregroundImage: AssetImage("images/sasaa.jpeg"),),
+            ),
+
+
+            /*DrawerHeader(child: Container(
+              padding: EdgeInsets.all(0),
+              child: Container(
+                color: Colors.blue,
+                child: Column(
+                  children: [
+                    Text("Shivam")
+                  ],
+                ),
+                
+
+              ),
+            )),*/
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+              onTap:(){},
+            ),
+            ListTile(
+              leading: Icon(Icons.add_shopping_cart),
+              title: Text("Shop"),
+              onTap:(){},
+            ),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text("Favorite"),
+              onTap:(){},
+            ),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Text("Labels"),
+            ),
+            ListTile(
+              leading: Icon(Icons.share),
+              title: Text("Share"),
+              onTap:(){},
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("Settings"),
+              onTap:(){},
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Log out"),
+              onTap:(){},
+            ),
+          ],
+        ),
+      ),
+
+       /* appBar: AppBar(
           title: Text(
             "Home Page",
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Colors.black,
-        ),
+        ),*/
         body: Container(
+          child: ListView.builder(
+            itemCount: products.length,
+              itemBuilder: (context , index){
+            return ListTile(
+              leading:  CircleAvatar(child: Text(products[index][0]),),
+              title: Text(products[index]),
+              subtitle: Text(productDetails[index]),
+              trailing: Text(price[index].toString()),
+            );
+          }),
+        ),
+
+
+
+
+        /*body: Container(
+          child: ListView(
+            itemExtent: 100.0,
+            reverse: true,
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true ,
+            children: [
+              ListTile(
+                leading: Icon(Icons.alarm_add),
+                title: Text("Shivam Sharma"),
+                subtitle: Text("Good information is nice person"),
+                trailing: Text("28-12-2024"),
+                onTap:(){},
+              ),
+              ListTile(
+                leading: Icon(Icons.alarm_add),
+                title: Text("Shivam Sharma"),
+                subtitle: Text("Good information is nice person"),
+                trailing: Text("28-12-2024"),
+              ),
+              ListTile(
+                leading: Icon(Icons.alarm_add),
+                title: Text("Shivam Sharma"),
+                subtitle: Text("Good information is nice person"),
+                trailing: Text("28-12-2024"),
+              )
+            ],
+          ),
+
+        ),*/
+
+
+
+       //4th
+       /* body: Container(
             padding: EdgeInsets.all(20.0),
             margin: EdgeInsets.all(20.0),
             width: 220.0,
@@ -41,7 +158,7 @@ class DashBoard extends StatelessWidget {
             child: Text(
               "Shivam Sharma",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-            ))
+            ))*/
 
         //3rd
         /* Image(

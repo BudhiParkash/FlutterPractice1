@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "My first flutter app",
       themeMode: ThemeMode.system,
-      home: Home(),
+      home: DashBoard(),
     );
     // TODO: implement build
     throw UnimplementedError();
