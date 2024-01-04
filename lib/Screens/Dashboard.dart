@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:first_project/Screens/form.dart';
 import 'package:flutter/material.dart';
 
 class DashBoard extends StatelessWidget {
@@ -22,8 +23,6 @@ class DashBoard extends StatelessWidget {
                 accountEmail: Text("shivam.dev@gmail.com"),
             currentAccountPicture: CircleAvatar(foregroundImage: AssetImage("images/sasaa.jpeg"),),
             ),
-
-
             /*DrawerHeader(child: Container(
               padding: EdgeInsets.all(0),
               child: Container(
@@ -33,8 +32,6 @@ class DashBoard extends StatelessWidget {
                     Text("Shivam")
                   ],
                 ),
-                
-
               ),
             )),*/
             ListTile(
@@ -187,6 +184,93 @@ class DashBoard extends StatelessWidget {
               text: 'Sharma',
               style: TextStyle(fontSize: 30.0, color: Colors.red))
         ]))*/
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context,MaterialPageRoute(builder: (context){
+            return MyForm();
+          }));
+
+        },
+        child: Icon(Icons.add),
+        /*backgroundColor: Colors.black,*/
+        /*foregroundColor: Colors.white,*/
+        elevation: 10.0,
+        shape: CircleBorder(),
+        /*shape: BeveledRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+
+        ),*/
+      ),
+      bottomNavigationBar: BottomAppBar(
+        /*color: Colors.black,*/
+        notchMargin: 5.0,
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.home,
+                    /*color: Colors.white,*/
+                  ),
+                  Text("Home" ,
+                  /*style: TextStyle(color: Colors.white),*/)
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.search,
+                    /*color: Colors.white,*/
+                  ),
+                  Text("Search" ,
+                    /*style: TextStyle(color: Colors.white),*/)
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.notifications,
+                   /* color: Colors.white,*/
+                  ),
+                  Text("Notification" ,
+                    /*style: TextStyle(color: Colors.white),*/)
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.person,
+                    /*color: Colors.white,*/
+                  ),
+                  Text("Profile" ,
+                    /*style: TextStyle(color: Colors.white),*/)
+                ],
+              ),
+            )
+          ],
+        ),
+
+      ),
         );
   }
 }
