@@ -23,7 +23,9 @@ class DashBoard extends StatelessWidget {
                 accountEmail: Text("shivam.dev@gmail.com"),
             currentAccountPicture: CircleAvatar(foregroundImage: AssetImage("images/sasaa.jpeg"),),
             ),
-            /*DrawerHeader(child: Container(
+
+            /*
+            DrawerHeader(child: Container(
               padding: EdgeInsets.all(0),
               child: Container(
                 color: Colors.blue,
@@ -33,7 +35,8 @@ class DashBoard extends StatelessWidget {
                   ],
                 ),
               ),
-            )),*/
+            )),
+            */
             ListTile(
               leading: Icon(Icons.home),
               title: Text("Home"),
@@ -269,9 +272,8 @@ class DashBoard extends StatelessWidget {
             )
           ],
         ),
-
       ),
-        );
+    );
   }
 }
 
