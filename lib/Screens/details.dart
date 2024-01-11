@@ -1,10 +1,11 @@
+import 'package:first_project/models/ProducModel.dart';
 import 'package:flutter/material.dart';
 
 
 class Details extends StatelessWidget {
-   Details({super.key , required this.productName});
+   Details({super.key , required this.productDetails});
 
-  String productName;
+   ProductDetails productDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class Details extends StatelessWidget {
           children: [
             ListTile(
               leading: Icon(Icons.account_balance),
-              title: Text(productName),
+              title: Text(productDetails.productName),
 
             )
           ],

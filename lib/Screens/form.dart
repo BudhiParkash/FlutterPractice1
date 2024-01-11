@@ -1,5 +1,6 @@
 
 import 'package:first_project/Screens/details.dart';
+import 'package:first_project/models/ProducModel.dart';
 import 'package:flutter/material.dart';
 
 
@@ -33,6 +34,8 @@ class _MyFormState extends State<MyForm> {
    String? _selectedVal = "Small";
 
    final _formKey = GlobalKey<FormState>();
+   ProductDetails productDetails = ProductDetails();
+
 
   void _updateText(){
     setState(() {
@@ -224,16 +227,27 @@ class _MyFormState extends State<MyForm> {
         style: OutlinedButton.styleFrom(minimumSize: const Size(200,50)),
         onPressed: (){
           if(_formKey.currentState!.validate()){
-            ScaffoldMessenger.of(context).showSnackBar((
-            const SnackBar(content: Text("Processing Data"))
-            ));
 
-          }else{
+            productDetails.productName = _productController.text;
+            productDetails.productDescription = _productController.text;
+            productDetails.isTopProduct = _listtileCheckBox;
+            productDetails.productTypeEnum = _productTypeEnum;
+            productDetails.productSize = _selectedVal;
+
+
             Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context){
-                  return Details(productName: _productController.text,);
+                  return Details(productDetails: productDetails,);
                 }));
+
+           /* ScaffoldMessenger.of(context).showSnackBar((
+            const SnackBar(content: Text("Processing Data"))
+
+            ));*/
+
+          }else{
+
           }
 
 
